@@ -3,14 +3,18 @@ import styled from "styled-components";
 import avatar from "./assets/avatar.png";
 import emailIcon from "./assets/email_icon.png";
 import gitIcon from "./assets/github-mark.png";
+import LinkedInIcon from "./assets/LinkedIn.svg";
 import "./App.css";
+
+import Paragraph from "./components/UI/buttons/Paragraph";
+import { TextParagraph } from "./components/UI/CommonElements";
 
 const email = "emeraldwhistler.dm@gmail.com";
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas: "sidebar content content";
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-areas: "sidebar sidebar content content content";
   @media (max-width: 450px) {
     display: flex;
     flex-direction: column;
@@ -18,6 +22,7 @@ const Wrapper = styled.div`
 `;
 
 const AvatarContainer = styled.div`
+  min-width: 36vw;
   display: flex;
   flex-direction: column;
   grid-area: sidebar;
@@ -29,35 +34,23 @@ const Avatar = styled.img`
   margin: auto;
   height: 90%;
   width: 90%;
-`;
-
-const Span = styled.span<{
-  bold?: boolean;
-  fontSize?: string;
-  tightScreenFont?: string;
-  wideScreenFont?: string;
-}>`
-  font-weight: ${({ bold }) => (bold ? "bold" : "normal")};
-  font-size: ${(props) => props.fontSize};
-  margin: 0 5px;
-  @media (max-width: 450px) {
-    font-size: ${(props) => props.tightScreenFont};
-  }
-  @media (min-width: 900px) {
-    font-size: ${(props) => props.wideScreenFont};
-  }
+  // @media (max-width: 670px) {
+  //   height: 200px;
+  //   width: 200px;
+  // }
 `;
 
 const IconsContainer = styled.div`
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: 10px auto;
 `;
 
 const Icon = styled.img<{ size: string; tightScreenSize?: string }>`
+  box-sizing: border-box;
   heigth: ${(props) => props.size};
   width: ${(props) => props.size};
-  margin: 0 3vw;
   @media (max-width: 450px) {
     height: ${(props) => props.tightScreenSize};
     width: ${(props) => props.tightScreenSize};
@@ -71,31 +64,59 @@ const ContactsContainer = styled.div`
 `;
 
 const ContentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   grid-area: content;
   background-color: #e6dede;
 `;
 
 function App() {
+  const [isExperienceVisible, setIsExperienceVisible] = useState(false);
+  const [isEducationVisible, setIsEducationVisible] = useState(false);
+  const [isTechStackVisible, setIsTechStackVisible] = useState(false);
+  const [isLangugesVisible, setIsLangugesVisible] = useState(false);
+  const [isParticipationsVisible, setIsParticipationsVisible] = useState(false);
   return (
     <Wrapper>
       <AvatarContainer>
         <Avatar src={avatar} alt="avatar"></Avatar>
-        <Span bold fontSize="3vw" tightScreenFont="20px" wideScreenFont="25px">
+        <TextParagraph
+          bold
+          fontSize="3vw"
+          tightScreenFont="20px"
+          wideScreenFont="25px"
+        >
           Dzmitry Maltsau
-        </Span>
-        <Span fontSize="2.5vw" tightScreenFont="16px" wideScreenFont="20px">
+        </TextParagraph>
+        <TextParagraph
+          fontSize="2.5vw"
+          tightScreenFont="16px"
+          wideScreenFont="20px"
+        >
           JavaScript Trainee
-        </Span>
+        </TextParagraph>
         <ContactsContainer>
-          <Span fontSize="2vw" tightScreenFont="14px" wideScreenFont="18px">
+          <TextParagraph
+            fontSize="2vw"
+            tightScreenFont="14px"
+            wideScreenFont="18px"
+          >
             Birth date: 28.04.1983
-          </Span>
-          <Span fontSize="2vw" tightScreenFont="14px" wideScreenFont="18px">
+          </TextParagraph>
+          <TextParagraph
+            fontSize="2vw"
+            tightScreenFont="14px"
+            wideScreenFont="18px"
+          >
             City of residence: Gomel, Belarus
-          </Span>
-          <Span fontSize="2vw" tightScreenFont="14px" wideScreenFont="18px">
+          </TextParagraph>
+          <TextParagraph
+            fontSize="2vw"
+            tightScreenFont="14px"
+            wideScreenFont="18px"
+          >
             Phone: +375447617586
-          </Span>
+          </TextParagraph>
           <IconsContainer>
             <a href={`mailto:${email}`}>
               <Icon
@@ -113,10 +134,68 @@ function App() {
                 alt="GitHub"
               ></Icon>
             </a>
+            <a href="linkedin.com/in/dzmitry-maltsau-58079a251">
+              <Icon
+                size="5vw"
+                tightScreenSize="50px"
+                src={LinkedInIcon}
+                alt="LinkedIn"
+              ></Icon>
+            </a>
           </IconsContainer>
         </ContactsContainer>
       </AvatarContainer>
-      <ContentContainer>CONTENT</ContentContainer>
+      <ContentContainer>
+        <Paragraph
+          text="Experience"
+          isOpen={isExperienceVisible}
+          onClick={() => setIsExperienceVisible(!isExperienceVisible)}
+          content={
+            <>
+              <TextParagraph bold>Design engineer (constructor)</TextParagraph>
+              <TextParagraph>oct. 2005 – oct. 2007</TextParagraph>
+              <TextParagraph color="gray">
+                “Gomel Plant “Communalnik”, Gomel
+              </TextParagraph>
+              <TextParagraph color="gray">
+                Development of design and technological documentation (AutoCAD)
+              </TextParagraph>
+              <TextParagraph bold>
+                Well survey engineer, lead engineer, head of geophysical party
+              </TextParagraph>
+              <TextParagraph>oct. 2007 – nov. 2022</TextParagraph>
+              <TextParagraph color="gray">
+                “Production Association “Belorusneft”, Department of Field
+                Geophysical Research, Rechitsa
+              </TextParagraph>
+              <TextParagraph color="gray">
+                Flow measurement studies, gas logging, production department
+                management
+              </TextParagraph>
+            </>
+          }
+        ></Paragraph>
+        <Paragraph
+          text="Education"
+          isOpen={isEducationVisible}
+          onClick={() => !isEducationVisible}
+        ></Paragraph>
+        <Paragraph
+          text="Tech Stack"
+          isOpen={isTechStackVisible}
+          onClick={() => !isTechStackVisible}
+        ></Paragraph>
+        <Paragraph
+          text="Languges"
+          isOpen={isLangugesVisible}
+          onClick={() => !isLangugesVisible}
+        ></Paragraph>
+        <Paragraph
+          text="Participations"
+          isOpen={isParticipationsVisible}
+          onClick={() => !isParticipationsVisible}
+        ></Paragraph>
+      </ContentContainer>
     </Wrapper>
   );
 }
