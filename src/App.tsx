@@ -31,13 +31,11 @@ const AvatarContainer = styled.div`
 `;
 
 const Avatar = styled.img`
-  margin: auto;
-  height: 90%;
+  margin: 1vw auto;
   width: 90%;
-  // @media (max-width: 670px) {
-  //   height: 200px;
-  //   width: 200px;
-  // }
+  @media (max-width: 450px) {
+    border-radius: 50%;
+  }
 `;
 
 const IconsContainer = styled.div`
@@ -126,7 +124,7 @@ function App() {
                 alt="E-Mail"
               />
             </a>
-            <a href="https://github.com/Maltsau">
+            <a href="https://github.com/Maltsau" target="_blank">
               <Icon
                 size="5vw"
                 tightScreenSize="50px"
@@ -134,7 +132,10 @@ function App() {
                 alt="GitHub"
               ></Icon>
             </a>
-            <a href="linkedin.com/in/dzmitry-maltsau-58079a251">
+            <a
+              href="https://linkedin.com/in/dzmitry-maltsau-58079a251"
+              target="_blank"
+            >
               <Icon
                 size="5vw"
                 tightScreenSize="50px"
@@ -152,23 +153,29 @@ function App() {
           onClick={() => setIsExperienceVisible(!isExperienceVisible)}
           content={
             <>
-              <TextParagraph bold>Design engineer (constructor)</TextParagraph>
-              <TextParagraph>oct. 2005 – oct. 2007</TextParagraph>
-              <TextParagraph color="gray">
+              <TextParagraph bold padding="10px 0 0 0">
+                Design engineer (constructor)
+              </TextParagraph>
+              <TextParagraph padding="0 10px">
+                oct. 2005 – oct. 2007
+              </TextParagraph>
+              <TextParagraph color="gray" padding="0 10px">
                 “Gomel Plant “Communalnik”, Gomel
               </TextParagraph>
-              <TextParagraph color="gray">
+              <TextParagraph color="gray" padding="0 10px">
                 Development of design and technological documentation (AutoCAD)
               </TextParagraph>
-              <TextParagraph bold>
+              <TextParagraph bold padding="5px 0 0 0">
                 Well survey engineer, lead engineer, head of geophysical party
               </TextParagraph>
-              <TextParagraph>oct. 2007 – nov. 2022</TextParagraph>
-              <TextParagraph color="gray">
+              <TextParagraph padding="0 10px">
+                oct. 2007 – nov. 2022
+              </TextParagraph>
+              <TextParagraph color="gray" padding="0 10px">
                 “Production Association “Belorusneft”, Department of Field
                 Geophysical Research, Rechitsa
               </TextParagraph>
-              <TextParagraph color="gray">
+              <TextParagraph color="gray" padding="0 10px">
                 Flow measurement studies, gas logging, production department
                 management
               </TextParagraph>
@@ -178,22 +185,76 @@ function App() {
         <Paragraph
           text="Education"
           isOpen={isEducationVisible}
-          onClick={() => !isEducationVisible}
+          onClick={() => setIsEducationVisible(!isEducationVisible)}
+          content={
+            <>
+              <TextParagraph bold underline padding="10px 0 0 0">
+                Higher education
+              </TextParagraph>
+              <TextParagraph bold>
+                Gomel State Technical University
+              </TextParagraph>
+              <TextParagraph padding="0 10px">jun. 2005</TextParagraph>
+              <TextParagraph padding="0 10px" color="gray">
+                Qualification – mining engineer
+              </TextParagraph>
+              <TextParagraph padding="0 10px" color="gray">
+                Spatiality – development and operation of oil and gas fields
+              </TextParagraph>
+              <TextParagraph bold underline padding="5px 0 0 0">
+                Additional education
+              </TextParagraph>
+              <TextParagraph bold>
+                JavaScript course, White Lynx Center, Gomel
+              </TextParagraph>
+              <TextParagraph padding="0 10px">aug. 2021</TextParagraph>
+            </>
+          }
         ></Paragraph>
         <Paragraph
           text="Tech Stack"
           isOpen={isTechStackVisible}
-          onClick={() => !isTechStackVisible}
+          onClick={() => setIsTechStackVisible(!isTechStackVisible)}
+          content={
+            <>
+              <TextParagraph padding="5px 0 5px 10px">
+                JavaScript, TypeScript, HTML, CSS, ReactJS, Next.js, Zustand,
+                Styled-Components, ReactQuery
+              </TextParagraph>
+            </>
+          }
         ></Paragraph>
         <Paragraph
           text="Languges"
           isOpen={isLangugesVisible}
-          onClick={() => !isLangugesVisible}
+          onClick={() => setIsLangugesVisible(!isLangugesVisible)}
+          content={
+            <>
+              <TextParagraph padding="5px 0 0 10px">
+                Russian – native
+              </TextParagraph>
+              <TextParagraph padding="0 10px">
+                Belarusian – fluent
+              </TextParagraph>
+              <TextParagraph padding="0 10px">
+                English - intermediate
+              </TextParagraph>
+            </>
+          }
         ></Paragraph>
         <Paragraph
           text="Participations"
           isOpen={isParticipationsVisible}
-          onClick={() => !isParticipationsVisible}
+          onClick={() => setIsParticipationsVisible(!isParticipationsVisible)}
+          content={
+            <>
+              <TextParagraph padding="15px 10px">
+                <a href="https://www.clookva.com" target="_blank">
+                  https://www.clookva.com
+                </a>
+              </TextParagraph>
+            </>
+          }
         ></Paragraph>
       </ContentContainer>
     </Wrapper>
