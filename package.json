@@ -1,13 +1,14 @@
 {
   "name": "aboutme",
   "private": true,
-  "homepage": " https://maltsau.github.io/aboutMe/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build"
   },
   "dependencies": {
     "gh-pages": "^5.0.0",
