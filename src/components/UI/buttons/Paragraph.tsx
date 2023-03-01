@@ -23,6 +23,7 @@ const FlexContainer = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
+  padding: 5px;
 `;
 
 const ArrowIcon = styled.img`
@@ -31,6 +32,10 @@ const ArrowIcon = styled.img`
   @media (max-width: 450px) {
     height: 16px;
     width: 16px;
+  }
+  @media (min-width: 900px) {
+    height: 20px;
+    width: 20px;
   }
 `;
 
@@ -48,7 +53,12 @@ export default function Paragraph({
   return (
     <Container onClick={onClick}>
       <FlexContainer>
-        <TextParagraph bold fontSize="2vw" tightScreenFont="16px">
+        <TextParagraph
+          bold
+          fontSize="2vw"
+          tightScreenFont="16px"
+          wideScreenFont="20px"
+        >
           {text}
         </TextParagraph>
         <ArrowIcon src={isOpen ? Down : Right} />

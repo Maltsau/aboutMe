@@ -24,3 +24,9 @@ export const TextParagraph = styled.p<{
     font-size: ${(props) => props.wideScreenFont};
   }
 `;
+
+const FlexContainer = styled.div`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+`;

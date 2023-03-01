@@ -68,6 +68,15 @@ const ContentContainer = styled.div`
   background-color: #e6dede;
 `;
 
+const SectorIcon = styled.div`
+  width: 100%;
+  height: 50%;
+  border-radius: 100px 100px 0 0;
+  border-top: 5px solid red;
+  border-left: 5px solid red;
+  border-right: 5px solid red;
+`;
+
 function App() {
   const [isExperienceVisible, setIsExperienceVisible] = useState(false);
   const [isEducationVisible, setIsEducationVisible] = useState(false);
@@ -153,7 +162,7 @@ function App() {
           onClick={() => setIsExperienceVisible(!isExperienceVisible)}
           content={
             <>
-              <TextParagraph bold padding="10px 0 0 0">
+              <TextParagraph bold padding="5px 0 0 0">
                 Design engineer (constructor)
               </TextParagraph>
               <TextParagraph padding="0 10px">
@@ -188,7 +197,7 @@ function App() {
           onClick={() => setIsEducationVisible(!isEducationVisible)}
           content={
             <>
-              <TextParagraph bold underline padding="10px 0 0 0">
+              <TextParagraph bold underline padding="5px 0 0 0">
                 Higher education
               </TextParagraph>
               <TextParagraph bold>
@@ -248,7 +257,7 @@ function App() {
           onClick={() => setIsParticipationsVisible(!isParticipationsVisible)}
           content={
             <>
-              <TextParagraph padding="15px 10px">
+              <TextParagraph padding="10px 10px">
                 <a href="https://www.clookva.com" target="_blank">
                   https://www.clookva.com
                 </a>
