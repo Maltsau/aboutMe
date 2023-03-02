@@ -20,6 +20,10 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
   }
+  @media (min-width: 900px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: "sidebar content content";
+  }
 `;
 
 const ContactsAvatarContainer = styled.div`
@@ -33,11 +37,11 @@ const ContactsAvatarContainer = styled.div`
 
 const AvatarContainer = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 `;
 
 const Avatar = styled.img`
-  margin: 5px auto;
+  margin: 5px;
   width: 90%;
   @media (max-width: 450px) {
     border-radius: 50%;
@@ -52,7 +56,7 @@ const HorisontalIconsContainer = styled.div`
   display: flex;
   justify-content: space-around;
   margin: 10px auto;
-  @media (min-width: 900px) {
+  @media (min-width: 950px) {
     display: none;
   }
 `;
@@ -60,15 +64,20 @@ const HorisontalIconsContainer = styled.div`
 const VerticalIconsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  margin-right: auto;
-  @media (max-width: 900px) {
+  justify-content: flex-start;
+  // margin-right: auto;
+  @media (max-width: 950px) {
     display: none;
   }
 `;
 
-const Icon = styled.img<{ size: string; tightScreenSize?: string }>`
+const Icon = styled.img<{
+  size: string;
+  tightScreenSize?: string;
+  margin?: string;
+}>`
   box-sizing: border-box;
+  margin: ${(props) => props.margin};
   heigth: ${(props) => props.size};
   width: ${(props) => props.size};
   @media (max-width: 450px) {
@@ -83,15 +92,6 @@ const ContactsContainer = styled.div`
   margin: 10px 5px 0 5px;
 `;
 
-const SectorIcon = styled.div`
-  width: 100%;
-  height: 50%;
-  border-radius: 100px 100px 0 0;
-  border-top: 5px solid red;
-  border-left: 5px solid red;
-  border-right: 5px solid red;
-`;
-
 function App() {
   return (
     <Wrapper>
@@ -101,7 +101,7 @@ function App() {
           <VerticalIconsContainer>
             <a href={`mailto:${email}`}>
               <Icon
-                size="5vw"
+                size="4vw"
                 tightScreenSize="50px"
                 src={emailIcon}
                 alt="E-Mail"
@@ -109,7 +109,8 @@ function App() {
             </a>
             <a href="https://github.com/Maltsau" target="_blank">
               <Icon
-                size="5vw"
+                size="4vw"
+                margin="1vw 0"
                 tightScreenSize="50px"
                 src={gitIcon}
                 alt="GitHub"
@@ -120,7 +121,8 @@ function App() {
               target="_blank"
             >
               <Icon
-                size="5vw"
+                size="4vw"
+                margin="1vw 0"
                 tightScreenSize="50px"
                 src={LinkedInIcon}
                 alt="LinkedIn"
