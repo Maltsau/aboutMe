@@ -56,7 +56,7 @@ const HorisontalIconsContainer = styled.div`
   display: flex;
   justify-content: space-around;
   margin: 10px auto;
-  @media (min-width: 950px) {
+  @media (min-width: 1000px) {
     display: none;
   }
 `;
@@ -66,7 +66,7 @@ const VerticalIconsContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   // margin-right: auto;
-  @media (max-width: 950px) {
+  @media (max-width: 1000px) {
     display: none;
   }
 `;
@@ -74,15 +74,20 @@ const VerticalIconsContainer = styled.div`
 const Icon = styled.img<{
   size: string;
   tightScreenSize?: string;
+  wideScreenSize?: string;
   margin?: string;
 }>`
   box-sizing: border-box;
   margin: ${(props) => props.margin};
-  heigth: ${(props) => props.size};
+  height: ${(props) => props.size};
   width: ${(props) => props.size};
   @media (max-width: 450px) {
     height: ${(props) => props.tightScreenSize};
     width: ${(props) => props.tightScreenSize};
+  }
+  @media (min-width: 900px) {
+    height: ${(props) => props.wideScreenSize};
+    width: ${(props) => props.wideScreenSize};
   }
 `;
 
@@ -103,6 +108,7 @@ function App() {
               <Icon
                 size="4vw"
                 tightScreenSize="50px"
+                wideScreenSize="50px"
                 src={emailIcon}
                 alt="E-Mail"
               />
@@ -112,6 +118,7 @@ function App() {
                 size="4vw"
                 margin="1vw 0"
                 tightScreenSize="50px"
+                wideScreenSize="50px"
                 src={gitIcon}
                 alt="GitHub"
               ></Icon>
@@ -124,6 +131,7 @@ function App() {
                 size="4vw"
                 margin="1vw 0"
                 tightScreenSize="50px"
+                wideScreenSize="50px"
                 src={LinkedInIcon}
                 alt="LinkedIn"
               ></Icon>

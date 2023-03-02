@@ -1,4 +1,7 @@
+import { useRef, useEffect } from "react";
 import styled from "styled-components";
+import autoAnimate from "@formkit/auto-animate";
+
 import Right from "../../../assets/Right.svg";
 import Down from "../../../assets/down.svg";
 
@@ -53,8 +56,13 @@ export default function Paragraph({
   isOpen?: boolean;
   onClick: () => void;
 }) {
+  const parent = useRef(null);
+  useEffect(() => {
+    parent.current && autoAnimate(parent.current);
+  }, [parent]);
+
   return (
-    <Container onClick={onClick}>
+    <Container ref={parent} onClick={onClick}>
       <FlexContainer>
         <TextParagraph
           bold
