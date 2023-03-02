@@ -8,6 +8,7 @@ import "./App.css";
 
 import Paragraph from "./components/UI/buttons/Paragraph";
 import { TextParagraph } from "./components/UI/CommonElements";
+import InfoPart from "./components/InfoPart";
 
 const email = "emeraldwhistler.dm@gmail.com";
 
@@ -21,7 +22,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const AvatarContainer = styled.div`
+const ContactsAvatarContainer = styled.div`
   min-width: 36vw;
   display: flex;
   flex-direction: column;
@@ -30,19 +31,40 @@ const AvatarContainer = styled.div`
   padding-top: 10px;
 `;
 
+const AvatarContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+`;
+
 const Avatar = styled.img`
-  margin: 1vw auto;
+  margin: 5px auto;
   width: 90%;
   @media (max-width: 450px) {
     border-radius: 50%;
   }
+  @media (min-width: 900px) {
+    width: 300px;
+  }
 `;
 
-const IconsContainer = styled.div`
+const HorisontalIconsContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-around;
   margin: 10px auto;
+  @media (min-width: 900px) {
+    display: none;
+  }
+`;
+
+const VerticalIconsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-right: auto;
+  @media (max-width: 900px) {
+    display: none;
+  }
 `;
 
 const Icon = styled.img<{ size: string; tightScreenSize?: string }>`
@@ -61,13 +83,6 @@ const ContactsContainer = styled.div`
   margin: 10px 5px 0 5px;
 `;
 
-const ContentContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  grid-area: content;
-  background-color: #e6dede;
-`;
-
 const SectorIcon = styled.div`
   width: 100%;
   height: 50%;
@@ -78,15 +93,41 @@ const SectorIcon = styled.div`
 `;
 
 function App() {
-  const [isExperienceVisible, setIsExperienceVisible] = useState(false);
-  const [isEducationVisible, setIsEducationVisible] = useState(false);
-  const [isTechStackVisible, setIsTechStackVisible] = useState(false);
-  const [isLangugesVisible, setIsLangugesVisible] = useState(false);
-  const [isParticipationsVisible, setIsParticipationsVisible] = useState(false);
   return (
     <Wrapper>
-      <AvatarContainer>
-        <Avatar src={avatar} alt="avatar"></Avatar>
+      <ContactsAvatarContainer>
+        <AvatarContainer>
+          <Avatar src={avatar} alt="avatar"></Avatar>
+          <VerticalIconsContainer>
+            <a href={`mailto:${email}`}>
+              <Icon
+                size="5vw"
+                tightScreenSize="50px"
+                src={emailIcon}
+                alt="E-Mail"
+              />
+            </a>
+            <a href="https://github.com/Maltsau" target="_blank">
+              <Icon
+                size="5vw"
+                tightScreenSize="50px"
+                src={gitIcon}
+                alt="GitHub"
+              ></Icon>
+            </a>
+            <a
+              href="https://linkedin.com/in/dzmitry-maltsau-58079a251"
+              target="_blank"
+            >
+              <Icon
+                size="5vw"
+                tightScreenSize="50px"
+                src={LinkedInIcon}
+                alt="LinkedIn"
+              ></Icon>
+            </a>
+          </VerticalIconsContainer>
+        </AvatarContainer>
         <TextParagraph
           bold
           fontSize="3vw"
@@ -124,7 +165,7 @@ function App() {
           >
             Phone: +375447617586
           </TextParagraph>
-          <IconsContainer>
+          <HorisontalIconsContainer>
             <a href={`mailto:${email}`}>
               <Icon
                 size="5vw"
@@ -152,120 +193,10 @@ function App() {
                 alt="LinkedIn"
               ></Icon>
             </a>
-          </IconsContainer>
+          </HorisontalIconsContainer>
         </ContactsContainer>
-      </AvatarContainer>
-      <ContentContainer>
-        <Paragraph
-          text="Experience"
-          isOpen={isExperienceVisible}
-          onClick={() => setIsExperienceVisible(!isExperienceVisible)}
-          content={
-            <>
-              <TextParagraph bold padding="5px 0 0 0">
-                Design engineer (constructor)
-              </TextParagraph>
-              <TextParagraph padding="0 10px">
-                oct. 2005 – oct. 2007
-              </TextParagraph>
-              <TextParagraph color="gray" padding="0 10px">
-                “Gomel Plant “Communalnik”, Gomel
-              </TextParagraph>
-              <TextParagraph color="gray" padding="0 10px">
-                Development of design and technological documentation (AutoCAD)
-              </TextParagraph>
-              <TextParagraph bold padding="5px 0 0 0">
-                Well survey engineer, lead engineer, head of geophysical party
-              </TextParagraph>
-              <TextParagraph padding="0 10px">
-                oct. 2007 – nov. 2022
-              </TextParagraph>
-              <TextParagraph color="gray" padding="0 10px">
-                “Production Association “Belorusneft”, Department of Field
-                Geophysical Research, Rechitsa
-              </TextParagraph>
-              <TextParagraph color="gray" padding="0 10px">
-                Flow measurement studies, gas logging, production department
-                management
-              </TextParagraph>
-            </>
-          }
-        ></Paragraph>
-        <Paragraph
-          text="Education"
-          isOpen={isEducationVisible}
-          onClick={() => setIsEducationVisible(!isEducationVisible)}
-          content={
-            <>
-              <TextParagraph bold underline padding="5px 0 0 0">
-                Higher education
-              </TextParagraph>
-              <TextParagraph bold>
-                Gomel State Technical University
-              </TextParagraph>
-              <TextParagraph padding="0 10px">jun. 2005</TextParagraph>
-              <TextParagraph padding="0 10px" color="gray">
-                Qualification – mining engineer
-              </TextParagraph>
-              <TextParagraph padding="0 10px" color="gray">
-                Spatiality – development and operation of oil and gas fields
-              </TextParagraph>
-              <TextParagraph bold underline padding="5px 0 0 0">
-                Additional education
-              </TextParagraph>
-              <TextParagraph bold>
-                JavaScript course, White Lynx Center, Gomel
-              </TextParagraph>
-              <TextParagraph padding="0 10px">aug. 2021</TextParagraph>
-            </>
-          }
-        ></Paragraph>
-        <Paragraph
-          text="Tech Stack"
-          isOpen={isTechStackVisible}
-          onClick={() => setIsTechStackVisible(!isTechStackVisible)}
-          content={
-            <>
-              <TextParagraph padding="5px 0 5px 10px">
-                JavaScript, TypeScript, HTML, CSS, ReactJS, Next.js, Zustand,
-                Styled-Components, ReactQuery
-              </TextParagraph>
-            </>
-          }
-        ></Paragraph>
-        <Paragraph
-          text="Languges"
-          isOpen={isLangugesVisible}
-          onClick={() => setIsLangugesVisible(!isLangugesVisible)}
-          content={
-            <>
-              <TextParagraph padding="5px 0 0 10px">
-                Russian – native
-              </TextParagraph>
-              <TextParagraph padding="0 10px">
-                Belarusian – fluent
-              </TextParagraph>
-              <TextParagraph padding="0 10px">
-                English - intermediate
-              </TextParagraph>
-            </>
-          }
-        ></Paragraph>
-        <Paragraph
-          text="Participations"
-          isOpen={isParticipationsVisible}
-          onClick={() => setIsParticipationsVisible(!isParticipationsVisible)}
-          content={
-            <>
-              <TextParagraph padding="10px 10px">
-                <a href="https://www.clookva.com" target="_blank">
-                  https://www.clookva.com
-                </a>
-              </TextParagraph>
-            </>
-          }
-        ></Paragraph>
-      </ContentContainer>
+      </ContactsAvatarContainer>
+      <InfoPart />
     </Wrapper>
   );
 }

@@ -17,6 +17,9 @@ const ContentContainer = styled.div`
   @media (max-width: 450px) {
     font-size: 14px;
   }
+  @media (min-width: 900px) {
+    font-size: 18px;
+  }
 `;
 
 const FlexContainer = styled.div`
