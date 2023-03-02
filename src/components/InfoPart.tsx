@@ -2,13 +2,36 @@ import { useState } from "react";
 import styled from "styled-components";
 
 import Paragraph from "./UI/buttons/Paragraph";
-import { TextParagraph } from "./UI/CommonElements";
+import { TextParagraph, FlexContainer } from "./UI/CommonElements";
+import RoundIcon from "./UI/RoundIcon";
 
-const ContentContainer = styled.div`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   grid-area: content;
   background-color: #e6dede;
+`;
+
+const LangugesContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  @media (min-width: 1015px) {
+    flex-direction: row;
+    justify-content: center;
+  }
+`;
+
+const RotatingFlexContainer = styled(FlexContainer)`
+  @media (min-width: 1015px) {
+    flex-direction: column;
+  }
+`;
+
+const VanishingContainer = styled.div`
+  display: flex;
+  @media (max-width: 900px) {
+    display: none;
+  }
 `;
 
 export default function InfoPart() {
@@ -18,7 +41,7 @@ export default function InfoPart() {
   const [isLangugesVisible, setIsLangugesVisible] = useState(false);
   const [isParticipationsVisible, setIsParticipationsVisible] = useState(false);
   return (
-    <ContentContainer>
+    <Container>
       <Paragraph
         text="Experience"
         isOpen={isExperienceVisible}
@@ -99,15 +122,30 @@ export default function InfoPart() {
         isOpen={isLangugesVisible}
         onClick={() => setIsLangugesVisible(!isLangugesVisible)}
         content={
-          <>
-            <TextParagraph padding="5px 0 0 10px">
-              Russian – native
-            </TextParagraph>
-            <TextParagraph padding="0 10px">Belarusian – fluent</TextParagraph>
-            <TextParagraph padding="0 10px">
-              English - intermediate
-            </TextParagraph>
-          </>
+          <LangugesContainer>
+            <RotatingFlexContainer padding="5px">
+              <TextParagraph padding="5px 10px">Russian – native</TextParagraph>
+              <VanishingContainer>
+                <RoundIcon size="3vw" percents={100} />
+              </VanishingContainer>
+            </RotatingFlexContainer>
+            <RotatingFlexContainer padding="5px">
+              <TextParagraph padding="5px 10px">
+                Belarusian – fluent
+              </TextParagraph>
+              <VanishingContainer>
+                <RoundIcon size="3vw" percents={100} />
+              </VanishingContainer>
+            </RotatingFlexContainer>
+            <RotatingFlexContainer padding="5px">
+              <TextParagraph padding="5px 10px">
+                English - intermediate
+              </TextParagraph>
+              <VanishingContainer>
+                <RoundIcon size="3vw" percents={50} />
+              </VanishingContainer>
+            </RotatingFlexContainer>
+          </LangugesContainer>
         }
       ></Paragraph>
       <Paragraph
@@ -124,6 +162,6 @@ export default function InfoPart() {
           </>
         }
       ></Paragraph>
-    </ContentContainer>
+    </Container>
   );
 }

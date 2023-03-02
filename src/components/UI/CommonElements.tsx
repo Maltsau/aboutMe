@@ -25,8 +25,9 @@ export const TextParagraph = styled.p<{
   }
 `;
 
-const FlexContainer = styled.div`
+export const FlexContainer = styled.div<{ cursor?: string; padding?: string }>`
   display: flex;
   align-items: center;
-  cursor: pointer;
+  cursor: ${(props) => props.cursor};
+  padding: ${(props) => props.padding};
 `;

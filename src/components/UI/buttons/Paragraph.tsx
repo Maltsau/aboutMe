@@ -5,7 +5,7 @@ import autoAnimate from "@formkit/auto-animate";
 import Right from "../../../assets/Right.svg";
 import Down from "../../../assets/down.svg";
 
-import { TextParagraph } from "../CommonElements";
+import { TextParagraph, FlexContainer } from "../CommonElements";
 
 const Container = styled.div`
   background-color: #6f8af0;
@@ -23,13 +23,6 @@ const ContentContainer = styled.div`
   @media (min-width: 900px) {
     font-size: 18px;
   }
-`;
-
-const FlexContainer = styled.div`
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  padding: 5px;
 `;
 
 const ArrowIcon = styled.img`
@@ -63,7 +56,7 @@ export default function Paragraph({
 
   return (
     <Container ref={parent} onClick={onClick}>
-      <FlexContainer>
+      <FlexContainer padding="5px" cursor="pointer">
         <TextParagraph
           bold
           fontSize="2vw"

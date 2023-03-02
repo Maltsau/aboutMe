@@ -43,6 +43,7 @@ const AvatarContainer = styled.div`
 const Avatar = styled.img`
   margin: 5px;
   width: 90%;
+  border-radius: 10%;
   @media (max-width: 450px) {
     border-radius: 50%;
   }
