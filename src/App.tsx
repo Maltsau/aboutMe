@@ -7,13 +7,13 @@ import LinkedInIcon from "./assets/LinkedIn.svg";
 import codeWarsIcon from "./assets/codewars.svg";
 import "./App.css";
 
-import Paragraph from "./components/UI/buttons/Paragraph";
 import { TextParagraph } from "./components/UI/CommonElements";
 import InfoPart from "./components/InfoPart";
 
 const email = "emeraldwhistler.dm@gmail.com";
 
 const Wrapper = styled.div`
+  min-height: 100%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-areas: "sidebar sidebar content content content";
