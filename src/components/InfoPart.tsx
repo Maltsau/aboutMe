@@ -123,22 +123,24 @@ export default function InfoPart() {
         onClick={() => setIsLangugesVisible(!isLangugesVisible)}
         content={
           <LangugesContainer>
-            <RotatingFlexContainer padding="5px">
-              <TextParagraph padding="5px 10px">Russian – native</TextParagraph>
+            <RotatingFlexContainer>
+              <TextParagraph padding="0 10px" wideScreenPadding="5px 10px">
+                Russian – native
+              </TextParagraph>
               <VanishingContainer>
                 <RoundIcon size="3vw" percents={100} />
               </VanishingContainer>
             </RotatingFlexContainer>
-            <RotatingFlexContainer padding="5px">
-              <TextParagraph padding="5px 10px">
+            <RotatingFlexContainer>
+              <TextParagraph padding="0 10px" wideScreenPadding="5px 10px">
                 Belarusian – fluent
               </TextParagraph>
               <VanishingContainer>
                 <RoundIcon size="3vw" percents={100} />
               </VanishingContainer>
             </RotatingFlexContainer>
-            <RotatingFlexContainer padding="5px">
-              <TextParagraph padding="5px 10px">
+            <RotatingFlexContainer>
+              <TextParagraph padding="0 10px" wideScreenPadding="5px 10px">
                 English - intermediate
               </TextParagraph>
               <VanishingContainer>

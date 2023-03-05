@@ -5,6 +5,7 @@ export const TextParagraph = styled.p<{
   underline?: boolean;
   color?: string;
   padding?: string;
+  wideScreenPadding?: string;
   fontSize?: string;
   tightScreenFont?: string;
   wideScreenFont?: string;
@@ -22,6 +23,7 @@ export const TextParagraph = styled.p<{
   }
   @media (min-width: 900px) {
     font-size: ${(props) => props.wideScreenFont};
+    padding: ${(props) => props.wideScreenPadding};
   }
 `;
 

@@ -4,6 +4,7 @@ import avatar from "./assets/avatar.png";
 import emailIcon from "./assets/email_icon.png";
 import gitIcon from "./assets/github-mark.png";
 import LinkedInIcon from "./assets/LinkedIn.svg";
+import codeWarsIcon from "./assets/codewars.svg";
 import "./App.css";
 
 import Paragraph from "./components/UI/buttons/Paragraph";
@@ -137,6 +138,16 @@ function App() {
                 alt="LinkedIn"
               ></Icon>
             </a>
+            <a href="https://www.codewars.com/users/Maltsau" target="_blank">
+              <Icon
+                size="4vw"
+                margin="1vw 0"
+                tightScreenSize="50px"
+                wideScreenSize="50px"
+                src={codeWarsIcon}
+                alt="codeWarsIcon"
+              ></Icon>
+            </a>
           </VerticalIconsContainer>
         </AvatarContainer>
         <TextParagraph
@@ -202,6 +213,16 @@ function App() {
                 tightScreenSize="50px"
                 src={LinkedInIcon}
                 alt="LinkedIn"
+              ></Icon>
+            </a>
+            <a href="https://www.codewars.com/users/Maltsau" target="_blank">
+              <Icon
+                size="4vw"
+                margin="1vw 0"
+                tightScreenSize="50px"
+                wideScreenSize="50px"
+                src={codeWarsIcon}
+                alt="codeWarsIcon"
               ></Icon>
             </a>
           </HorisontalIconsContainer>
